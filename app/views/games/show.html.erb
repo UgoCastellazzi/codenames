@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="row">
+        <% @game.words.each do |word| %>
+            <div class="col-md-5ths">
+                <%= word.content %>
+            </div>
+        <% end %>
+    </div>
+</div>
