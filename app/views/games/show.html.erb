@@ -28,7 +28,7 @@
                 <div id="clues" data-game-id="<%= @game.id %>">
                     <% @game.clues.each do |clue| %>
                         <div class="clue-container" id="clue-<%= clue.id %>">
-                            <p><%= clue.number_clue %> <%= clue.word_clue %></p>
+                            <p><%= clue.number_clue %> <%= clue.number_clue %> <%= clue.word_clue %></p>
                         </div>
                     <% end %>
                 </div>
