@@ -1,5 +1,9 @@
 class GamesController < ApplicationController
 
+    def show
+        @game = Game.find(params[:id])
+    end
+    
     def new
         @game = Game.new
     end
@@ -9,7 +13,7 @@ class GamesController < ApplicationController
         @game.words = Word.generate_word_list
         @game.player_one = current_user
         @game.save
-        redirect_to root_path
+        redirect_to game_path(@game)
     end
 
 

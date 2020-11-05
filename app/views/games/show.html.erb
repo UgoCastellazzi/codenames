@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <% @game.words.each do |word| %>
+            <div class="col-md-5ths word-card">
+                <%= word.content %>
+            </div>
+        <% end %>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="clue">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="chat">
+            </div>
+        </div>
+    </div>
+</div>
