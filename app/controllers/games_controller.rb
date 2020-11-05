@@ -12,9 +12,10 @@ class GamesController < ApplicationController
         @game = Game.new
         @game.words = Word.generate_word_list
         @game.player_one = current_user
+        @game.player_two = User.all.reject{ |user| user == current_user}.first
         @game.save
         redirect_to game_path(@game)
     end
-
+    private
 
 end
