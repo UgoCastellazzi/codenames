@@ -16,10 +16,22 @@
     <div class="row">
         <div class="col-6">
             <div class="clue">
+            <%= simple_form_for [ @game, @clue ], remote: true do |f| %>
+                <%= f.input :number_clue, label: false, placeholder: "Combien de mots ?" %>
+                <%= f.input :word_clue, label: false, placeholder: "Quel indice ?" %>
+                <%= f.submit %>
+            <% end %>
             </div>
         </div>
         <div class="col-6">
             <div class="chat">
+                <div id="clues" data-game-id="<%= @game.id %>">
+                    <% @game.clues.each do |clue| %>
+                        <div class="clue-container" id="clue-<%= clue.id %>">
+                            <p><%= clue.number_clue %> <%= clue.number_clue %> <%= clue.word_clue %></p>
+                        </div>
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>

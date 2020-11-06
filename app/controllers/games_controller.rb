@@ -2,6 +2,7 @@ class GamesController < ApplicationController
 
     def show
         @game = Game.find(params[:id])
+        @clue = Clue.new
     end
     
     def new
