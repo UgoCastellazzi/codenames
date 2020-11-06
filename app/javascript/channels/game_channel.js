@@ -1,7 +1,6 @@
 import consumer from "./consumer";
 
 const initGameCable = () => {
-  console.log("data")
   const cluesContainer = document.getElementById('clues');
   if (cluesContainer) {
     const id = cluesContainer.dataset.gameId;
