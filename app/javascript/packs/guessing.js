@@ -1,43 +1,57 @@
 import { event } from "jquery";
 import { fetchWithToken } from "../utils/fetch_with_token";
 
-const clueFormSubmit = document.getElementById("new_clue");
-// const clueNumber = document.getElementById("clue_number_clue");
 const cards = document.querySelectorAll("div.word-card")
-const clueContainer = document.getElementById("clues")
+const blueCards = document.querySelectorAll(".blue-card")
+const gameId = document.getElementById('clues').dataset.gameId
+
+// avoir un champ revealed pour les mots, faire apparaître dans les classes des divs et update à chaque click
+// ne prendre que les blue cards non revealed
+// récupérer dynamiquement l'ID du dame
 
 const launchGuessingWork = () => {
     cards.forEach((card) => {
-        card.addEventListener("click", () => {
-            fetchWithToken("/games/32/clues", {
+        card.addEventListener("click", (event) => {
+            fetchWithToken(`/games/${gameId}/clues`, {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json"
                 },
-                    body: JSON.stringify({ word_clue: "blop" })
+                    body: JSON.stringify({ word_clue: generateMessage(event) })
                 })
+            changeColor(event);
         });
     });
 
 }
 
-const checkColor = (event) => {
-    const classes = event.currentTarget.classList.value;
+const changeColor = (event) => {
+    const card = event.currentTarget
+    const classes = card.classList.value;
     if (classes.includes("black-card")) {
-        displayMessage("<p>perdu</p>")
+        card.classList.add("black-revealed");
     } else if (classes.includes("blue-card")) {
-        displayMessage("<p>encore perdu</p>");
+        card.classList.add("blue-revealed");
     } else if (classes.includes("white-card")) {
-        displayMessage("<p>encore perdu</p>");
+        card.classList.add("white-revealed");
     } else {
-        displayMessage("<p>continue</p>")
+        card.classList.add("red-revealed");
     }
 }
 
-const displayMessage = (message) => {
-    clueContainer.insertAdjacentHTML("beforeend", message)
-    console.log(message)
+const generateMessage = (event) => {
+    const classes = event.currentTarget.classList.value;
+    const word = event.currentTarget.dataset.word
+    if (classes.includes("black-card")) {
+        return `${word} est une carte noire, c'est perdu !`;
+    } else if (classes.includes("blue-card")) {
+        return `${word} est une carte bleue, trop triste !`;
+    } else if (classes.includes("white-card")) {
+        return `${word} est une carte blanche, ça craint mais pas trop !`;
+    } else {
+        return `${word} est une carte rouge, youpi !`;
+    }
 }
 
 export { launchGuessingWork }
