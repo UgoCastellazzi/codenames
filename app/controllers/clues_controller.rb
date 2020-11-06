@@ -6,19 +6,24 @@ class CluesController < ApplicationController
         @clue.game = @game
         @clue.user = current_user
         if @clue.save
-            redirect_to game_path(@game)
+            respond_to do |format|
+                format.html
+                format.json { render json: { success: true } }
+            end
+            # redirect_to game_path(@game) 
+            
         else
-            render "games/show"
+            render json: { success: false }, status: :unprocessable_entity
         end
         GameChannel.broadcast_to(
             @game,
-            render_to_string(partial: "clue", locals: { clue: @clue })
+            @clue.word_clue
         )
     end
 
     private
 
     def clue_params
-        params.require(:clue).permit(:number_clue, :word_clue)
+        params.require(:clue).permit(:word_clue)
     end
 end

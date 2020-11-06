@@ -18,7 +18,6 @@
             <div class="clue">
             <% if current_user == @game.player_one %>
                 <%= simple_form_for [ @game, @clue ], remote: true do |f| %>
-                    <%= f.input :number_clue, label: false, placeholder: "Combien de mots ?" %>
                     <%= f.input :word_clue, label: false, placeholder: "Quel indice ?" %>
                     <%= f.submit id:"form-submit" %>
                 <% end %>
@@ -30,7 +29,7 @@
                 <div id="clues" data-game-id="<%= @game.id %>">
                     <% @game.clues.each do |clue| %>
                         <div class="clue-container" id="clue-<%= clue.id %>">
-                            <p><%= clue.number_clue %> <%= clue.word_clue %></p>
+                            <p><%= clue.word_clue %></p>
                         </div>
                     <% end %>
                 </div>
