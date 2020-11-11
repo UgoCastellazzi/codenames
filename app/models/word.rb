@@ -36,4 +36,8 @@ class Word < ApplicationRecord
         word
     end
 
+    def reveal
+        self.revealed = true
+        self.save
+    end
 end

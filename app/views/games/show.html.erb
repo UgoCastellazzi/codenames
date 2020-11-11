@@ -7,7 +7,7 @@
                     <p><%= word.content %></p>
                 </div>
             <% else %>
-                <div id="<%= word.id %>" data-word="<%= word.content %>" class="col-md-5ths word-card <%= word.color %>-card">
+                <div id="<%= word.id %>" data-word="<%= word.content %>" class="col-md-5ths word-card <%= word.color %>-card <%= word.color %>-revealed-<%= word.revealed %>">
                     <p><%= word.content %></p>
                 </div>
             <% end %>
