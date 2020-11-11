@@ -3,11 +3,11 @@
     <div class="row justify-content-center">
         <% @game.words.each do |word| %>
             <% if current_user == @game.player_one %>
-                <div data-word="<%= word.content %>" class="col-md-5ths word-card <%= word.color %>-card <%= word.color %>-to-guess">
+                <div id="<%= word.id %>" data-word="<%= word.content %>" class="col-md-5ths word-card <%= word.color %>-card <%= word.color %>-to-guess <%= word.color %>-revealed-<%= word.revealed %>">
                     <p><%= word.content %></p>
                 </div>
             <% else %>
-                <div data-word="<%= word.content %>" class="col-md-5ths word-card <%= word.color %>-card">
+                <div id="<%= word.id %>" data-word="<%= word.content %>" class="col-md-5ths word-card <%= word.color %>-card">
                     <p><%= word.content %></p>
                 </div>
             <% end %>

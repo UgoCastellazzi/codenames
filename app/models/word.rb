@@ -31,6 +31,7 @@ class Word < ApplicationRecord
         word = Word.new
         word.content = words_available.sample
         word.color = color
+        word.revealed = false
         word.save
         word
     end
