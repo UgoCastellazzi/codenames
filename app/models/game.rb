@@ -3,4 +3,5 @@ class Game < ApplicationRecord
   belongs_to :player_two, class_name: "User", optional: true
   serialize :words, Array
   has_many :clues
+  has_many :messages
 end

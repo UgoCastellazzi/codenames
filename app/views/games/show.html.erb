@@ -15,21 +15,28 @@
     </div>
     <div class="row">
         <div class="col-6">
-            <div class="clue">
-            <% if current_user == @game.player_one %>
-                <%= simple_form_for [ @game, @clue ], remote: true do |f| %>
-                    <%= f.input :word_clue, label: false, placeholder: "Quel indice ?" %>
-                    <%= f.submit id:"form-submit" %>
-                <% end %>
-            <% end %>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="chat">
+            <div class="clues-container">
                 <div id="clues" data-game-id="<%= @game.id %>">
                     <% @game.clues.each do |clue| %>
                         <div class="clue-container" id="clue-<%= clue.id %>">
-                            <p><%= clue.word_clue %></p>
+                            <p><%= clue.user.nickname %>: <%= clue.word_clue %></p>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+            <div class="clue">
+                <%= simple_form_for [ @game, @clue ],  remote: true do |f| %>
+                    <%= f.input :word_clue, label: false, placeholder: "Tape ton message" %>
+                    <%= f.submit id:"form-submit", value: "Envoyer"  %>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="messages-container">
+                <div id="messages" data-game-id="<%= @game.id %>">
+                    <% @game.messages.each do |message| %>
+                        <div class="message-container" id="message-<%= message.id %>">
+                            <p><%= message.content %></p>
                         </div>
                     <% end %>
                 </div>

@@ -1,4 +1,15 @@
-.chat {
+#clues {
     border: 1px solid black;
-    height: 100px;
+    height: 500px;
+    flex:1;
+    background-color:white;
+    overflow-y: scroll
+}
+
+#messages {
+    border: 1px solid black;
+    height: 500px;
+    flex:1;
+    background-color:white;
+    overflow-y: scroll
 }
