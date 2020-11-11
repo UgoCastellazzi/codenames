@@ -2,12 +2,7 @@ import { event } from "jquery";
 import { fetchWithToken } from "../utils/fetch_with_token";
 
 const cards = document.querySelectorAll("div.word-card")
-const blueCards = document.querySelectorAll(".blue-card")
 const gameId = document.getElementById('clues').dataset.gameId
-
-// avoir un champ revealed pour les mots, faire apparaître dans les classes des divs et update à chaque click
-// ne prendre que les blue cards non revealed
-// lancer le message que si carte est pas revealed
 
 const launchGuessingWork = () => {
     cards.forEach((card) => {

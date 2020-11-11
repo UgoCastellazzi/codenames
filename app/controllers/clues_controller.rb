@@ -17,7 +17,7 @@ class CluesController < ApplicationController
         end
         GameChannel.broadcast_to(
             @game,
-            @clue.word_clue
+            "#{@clue.user.nickname}: #{@clue.word_clue}"
         )
     end
 
