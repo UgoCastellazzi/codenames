@@ -7,7 +7,6 @@ const gameId = document.getElementById('clues').dataset.gameId
 
 // avoir un champ revealed pour les mots, faire apparaître dans les classes des divs et update à chaque click
 // ne prendre que les blue cards non revealed
-// récupérer dynamiquement l'ID du dame
 
 const launchGuessingWork = () => {
     cards.forEach((card) => {
