@@ -29,7 +29,7 @@ class Word < ApplicationRecord
 
     def self.generate_word(color, words_available)
         word = Word.new
-        word.content = words_available.sample
+        word.content = words_available.sample.capitalize
         word.color = color
         word.revealed = false
         word.save

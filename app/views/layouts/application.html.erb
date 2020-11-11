@@ -13,10 +13,9 @@
 
   <body>
     <%= render 'shared/flashes' %>
-    <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
     <%= yield %>
+        <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %>
   </body>
 </html>

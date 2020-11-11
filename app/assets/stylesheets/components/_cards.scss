@@ -1,36 +1,50 @@
+.cards-container {
+    margin-bottom: 30px;
+}
+
 .word-card {
     border: 1px solid black;
-    border-radius: 2px;
+    border-radius: 5px;
     text-align: center;
-    padding: 10px;
+    padding: 30px;
+    p {
+        margin: 0;
+    }
 }
 
 .red-to-guess {
-    border: 2px solid red;
+    border: 2px solid $red;
 }
 
 .blue-to-guess {
-    border: 2px solid blue;
+    border: 2px solid $blue;
 }
 .white-to-guess {
-    border: 2px solid white;
+    border: 2px solid $light-gray;
 }
 .black-to-guess {
-    border: 2px solid black;
+    border: 2px solid $black;
 }
 
 .red-revealed-true {
-    background: red;
+    background: $red;
+    color: white;
+    border: none;
 }
 
 .blue-revealed-true {
-    background: blue;
+    background: $blue;
+    color: white;
+    border: none;
 }
 
 .white-revealed-true {
-    background: white;
+    background: $light-gray;
+    border: none;
 }
 
 .black-revealed-true {
-    background: black;
+    background: $black;
+    color: white;
+    border: none;
 }

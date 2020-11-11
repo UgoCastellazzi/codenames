@@ -1,15 +1,9 @@
-#clues {
-    border: 1px solid black;
-    height: 500px;
+.chat-container {
+    border: 1px solid $light-gray;
+    border-radius: 5px;
+    height: 200px;
     flex:1;
     background-color:white;
-    overflow-y: scroll
-}
-
-#messages {
-    border: 1px solid black;
-    height: 500px;
-    flex:1;
-    background-color:white;
-    overflow-y: scroll
+    overflow-y: scroll;
+    padding-left: 8px;
 }
