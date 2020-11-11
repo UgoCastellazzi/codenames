@@ -5,32 +5,32 @@
     padding: 10px;
 }
 
-.red-to-guess {
+.red-revealed-false {
     border: 2px solid red;
 }
 
-.blue-to-guess {
+.blue-revealed-false {
     border: 2px solid blue;
 }
-.white-to-guess {
+.white-revealed-false {
     border: 2px solid white;
 }
-.black-to-guess {
+.black-revealed-false {
     border: 2px solid black;
 }
 
-.red-revealed {
+.red-revealed-true {
     background: red;
 }
 
-.blue-revealed {
+.blue-revealed-true {
     background: blue;
 }
 
-.white-revealed {
+.white-revealed-true {
     background: white;
 }
 
-.black-revealed {
+.black-revealed-true {
     background: black;
 }

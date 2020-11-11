@@ -7,7 +7,6 @@ const initGameCable = () => {
 
     consumer.subscriptions.create({ channel: "GameChannel", id: id }, {
       received(data) {
-        console.log(data);
         cluesContainer.insertAdjacentHTML('beforeend', 
         `<div class='clue-container' id='clue'>
             <p> ${data} </p>

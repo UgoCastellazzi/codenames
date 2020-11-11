@@ -7,6 +7,7 @@ const gameId = document.getElementById('clues').dataset.gameId
 
 // avoir un champ revealed pour les mots, faire apparaître dans les classes des divs et update à chaque click
 // ne prendre que les blue cards non revealed
+// lancer le message que si carte est pas revealed
 
 const launchGuessingWork = () => {
     cards.forEach((card) => {
@@ -19,29 +20,30 @@ const launchGuessingWork = () => {
                 },
                     body: JSON.stringify({ word_clue: generateMessage(event) })
                 })
-            changeColor(event);
         });
     });
-
 }
 
 const changeColor = (event) => {
     const card = event.currentTarget
     const classes = card.classList.value;
     if (classes.includes("black-card")) {
-        card.classList.add("black-revealed");
+        card.classList.add("black-revealed-true");
     } else if (classes.includes("blue-card")) {
-        card.classList.add("blue-revealed");
+        card.classList.add("blue-revealed-true");
     } else if (classes.includes("white-card")) {
-        card.classList.add("white-revealed");
+        card.classList.add("white-revealed-true");
     } else {
-        card.classList.add("red-revealed");
+        card.classList.add("red-revealed-true");
     }
 }
 
 const generateMessage = (event) => {
     const classes = event.currentTarget.classList.value;
     const word = event.currentTarget.dataset.word
+    changeColor(event);
+    // const card = event.currentTarget
+    // console.log(card)
     if (classes.includes("black-card")) {
         return `${word} est une carte noire, c'est perdu !`;
     } else if (classes.includes("blue-card")) {
