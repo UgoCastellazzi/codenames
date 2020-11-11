@@ -17,6 +17,16 @@ class GamesController < ApplicationController
         @game.save
         redirect_to game_path(@game)
     end
+
+    def update(game_id, params)
+        @game = Game.find(id = game_id)
+        @game.update(params)
+    end
+    
     private
+
+    def game_params
+        params.require(:game).permit(:words)
+    end
 
 end

@@ -12,38 +12,22 @@ const gameId = document.getElementById('clues').dataset.gameId
 const launchGuessingWork = () => {
     cards.forEach((card) => {
         card.addEventListener("click", (event) => {
+            const wordId = event.currentTarget.id
             fetchWithToken(`/games/${gameId}/messages`, {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json"
                 },
-                    body: JSON.stringify({ content: generateMessage(event) })
+                    body: JSON.stringify({ content: generateMessage(event), word_id: wordId })
                 })
         });
     });
 }
 
-const changeColor = (event) => {
-    const card = event.currentTarget
-    const classes = card.classList.value;
-    if (classes.includes("black-card")) {
-        card.classList.add("black-revealed-true");
-    } else if (classes.includes("blue-card")) {
-        card.classList.add("blue-revealed-true");
-    } else if (classes.includes("white-card")) {
-        card.classList.add("white-revealed-true");
-    } else {
-        card.classList.add("red-revealed-true");
-    }
-}
-
 const generateMessage = (event) => {
     const classes = event.currentTarget.classList.value;
     const word = event.currentTarget.dataset.word
-    changeColor(event);
-    // const card = event.currentTarget
-    // console.log(card)
     if (classes.includes("black-card")) {
         return `${word} est une carte noire, c'est perdu !`;
     } else if (classes.includes("blue-card")) {
