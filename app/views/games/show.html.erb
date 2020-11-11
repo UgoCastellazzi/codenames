@@ -1,6 +1,6 @@
 <div class="container">
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center cards-container">
         <% @game.words.each do |word| %>
             <% if current_user == @game.player_one %>
                 <div id="<%= word.id %>" data-word="<%= word.content %>" class="col-md-5ths word-card <%= word.color %>-card <%= word.color %>-to-guess <%= word.color %>-revealed-<%= word.revealed %>">
@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-6">
             <div class="clues-container">
-                <div id="clues" data-game-id="<%= @game.id %>">
+                <div id="clues" class="chat-container" data-game-id="<%= @game.id %>">
                     <% @game.clues.each do |clue| %>
                         <div class="clue-container" id="clue-<%= clue.id %>">
                             <p><%= clue.user.nickname %>: <%= clue.word_clue %></p>
@@ -27,13 +27,13 @@
             <div class="clue">
                 <%= simple_form_for [ @game, @clue ],  remote: true do |f| %>
                     <%= f.input :word_clue, label: false, placeholder: "Tape ton message" %>
-                    <%= f.submit id:"form-submit", value: "Envoyer"  %>
+                    <%= f.submit id:"form-submit", class: "btn btn-primary send-message", value: "Envoyer"  %>
                 <% end %>
             </div>
         </div>
         <div class="col-6">
             <div class="messages-container">
-                <div id="messages" data-game-id="<%= @game.id %>">
+                <div id="messages" class="chat-container" data-game-id="<%= @game.id %>">
                     <% @game.messages.each do |message| %>
                         <div class="message-container" id="message-<%= message.id %>">
                             <p><%= message.content %></p>
