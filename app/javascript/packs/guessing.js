@@ -12,13 +12,13 @@ const gameId = document.getElementById('clues').dataset.gameId
 const launchGuessingWork = () => {
     cards.forEach((card) => {
         card.addEventListener("click", (event) => {
-            fetchWithToken(`/games/${gameId}/clues`, {
+            fetchWithToken(`/games/${gameId}/messages`, {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json"
                 },
-                    body: JSON.stringify({ word_clue: generateMessage(event) })
+                    body: JSON.stringify({ content: generateMessage(event) })
                 })
         });
     });
