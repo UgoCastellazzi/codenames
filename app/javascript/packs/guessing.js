@@ -24,13 +24,13 @@ const generateMessage = (event) => {
     const classes = event.currentTarget.classList.value;
     const word = event.currentTarget.dataset.word
     if (classes.includes("black-card")) {
-        return `${word} est une carte noire, c'est perdu !`;
+        return `"${word}" est une carte noire, c'est perdu !`;
     } else if (classes.includes("blue-card")) {
-        return `${word} est une carte bleue, trop triste !`;
+        return `"${word}" est une carte bleue, trop triste !`;
     } else if (classes.includes("white-card")) {
-        return `${word} est une carte blanche, ça craint mais pas trop !`;
+        return `"${word}" est une carte blanche, ça craint mais pas trop !`;
     } else {
-        return `${word} est une carte rouge, youpi !`;
+        return `"${word}" est une carte rouge, youpi !`;
     }
 }
 

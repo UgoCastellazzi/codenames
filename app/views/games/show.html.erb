@@ -19,7 +19,7 @@
                 <div id="clues" class="chat-container" data-game-id="<%= @game.id %>">
                     <% @game.clues.each do |clue| %>
                         <div class="clue-container" id="clue-<%= clue.id %>">
-                            <p><%= clue.user.nickname %>: <%= clue.word_clue %></p>
+                            <p class="player-one-<%= @game.player_one_id == clue.user_id %>"><%= clue.user.nickname %>: <%= clue.word_clue %></p>
                         </div>
                     <% end %>
                 </div>

@@ -6,4 +6,15 @@
     background-color:white;
     overflow-y: scroll;
     padding-left: 8px;
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.player-one-true {
+    color: $red;
+}
+
+.player-one-false {
+    color: $blue;
 }
