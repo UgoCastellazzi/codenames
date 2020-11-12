@@ -1,3 +1,10 @@
-<%= simple_form_for(@game) do |f| %>
-    <%= f.submit %>
-<% end %>
+<div class="container d-flex new-game-container align-items-center justify-content-center">
+    <div class="row">
+        <div class="col-4">
+            <%= simple_form_for(@game) do |f| %>
+                <%= f.submit class: "btn btn-primary big-btn", value: "Allez, on joue là !"%>
+            <% end %>
+        </div>
+    </div>
+</div>
+

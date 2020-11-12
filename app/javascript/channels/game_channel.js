@@ -17,6 +17,7 @@ const initGameCable = () => {
 
 const printMessage = (data, cluesContainer, messagesContainer) => {
   if (data.word_id) {
+    console.log(data)
     messagesContainer.insertAdjacentHTML('beforeend', 
     `<div class='clue-container' id='clue'>
         <p> ${data.content} </p>
@@ -26,7 +27,7 @@ const printMessage = (data, cluesContainer, messagesContainer) => {
   } else {
     cluesContainer.insertAdjacentHTML('beforeend', 
     `<div class='clue-container' id='clue'>
-        <p> ${data} </p>
+        ${data}
     </div>`
     );
     const formInput = document.getElementById("new_clue");

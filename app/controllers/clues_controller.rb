@@ -17,7 +17,7 @@ class CluesController < ApplicationController
         end
         GameChannel.broadcast_to(
             @game,
-            "#{@clue.user.nickname}: #{@clue.word_clue}"
+            "<p class='player-one-#{@game.player_one_id == @clue.user_id}'>#{@clue.user.nickname}: #{@clue.word_clue}</p>"
         )
     end
 
@@ -27,3 +27,6 @@ class CluesController < ApplicationController
         params.require(:clue).permit(:word_clue)
     end
 end
+
+
+# "#{@clue.user.nickname}: #{@clue.word_clue}"
